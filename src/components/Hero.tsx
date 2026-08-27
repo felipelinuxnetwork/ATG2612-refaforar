@@ -162,7 +162,7 @@ export const Hero: React.FC = () => {
               </div>
 
               {/* Direct Call Box */}
-              <div className="bg-gradient-to-br from-blue-950/40 via-slate-900 to-slate-900 rounded-xl p-4 border border-blue-900/40">
+              <div className="bg-gradient-to-br from-red-950/40 via-slate-900 to-slate-900 rounded-xl p-4 border border-red-900/40">
                 <div className="flex items-center justify-between">
                   <div>
                     <span className="text-xs text-slate-400 font-medium block">Atendimento Imediato:</span>
@@ -170,13 +170,14 @@ export const Hero: React.FC = () => {
                   </div>
                   <a
                     href={`tel:${companyData.phonePrimaryRaw}`}
-                    className="px-3 py-1.5 rounded-lg bg-blue-600 hover:bg-blue-500 text-white text-xs font-bold transition-colors"
+                    className="relative px-3.5 py-1.5 rounded-lg bg-red-600 hover:bg-red-500 text-white text-xs font-black tracking-wide transition-all shadow-lg shadow-red-600/40 animate-pulse flex items-center justify-center gap-1.5"
                   >
-                    Ligar Agora
+                    <span className="w-1.5 h-1.5 rounded-full bg-white animate-ping" />
+                    <span>Ligar Agora</span>
                   </a>
                 </div>
                 <div className="mt-2 text-[11px] text-slate-400 flex items-center gap-1">
-                  <MapPin className="w-3 h-3 text-blue-400" />
+                  <MapPin className="w-3 h-3 text-red-400" />
                   <span>Av. Jurucê, 898 - Moema - São Paulo</span>
                 </div>
               </div>
