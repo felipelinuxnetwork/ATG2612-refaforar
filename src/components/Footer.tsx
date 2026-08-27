@@ -9,7 +9,16 @@ export const Footer: React.FC = () => {
   };
 
   return (
-    <footer className="bg-slate-950 border-t border-slate-800/80 text-slate-400 text-sm relative">
+    <footer className="bg-gradient-to-b from-slate-950 via-zinc-950 to-black border-t border-slate-800/80 text-slate-400 text-sm relative overflow-hidden">
+      {/* Background Image Layer with Blur & Contrast */}
+      <div className="absolute inset-0 -z-10 overflow-hidden pointer-events-none">
+        <img
+          src="/images/service-fleet.jpg"
+          alt="Rodapé Coopstar Express"
+          className="w-full h-full object-cover scale-110 filter blur-md sm:blur-lg opacity-25 brightness-[0.45] contrast-[1.35] saturate-[1.5]"
+        />
+        <div className="absolute inset-0 bg-gradient-to-b from-slate-950/80 to-black" />
+      </div>
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-10">
           
@@ -32,25 +41,25 @@ export const Footer: React.FC = () => {
             </h4>
             <ul className="space-y-2 text-xs sm:text-sm">
               <li>
-                <a href="#inicio" className="hover:text-red-400 transition-colors">Início</a>
+                <a href="#inicio" className="hover:text-blue-400 transition-colors">Início</a>
               </li>
               <li>
-                <a href="#servicos" className="hover:text-red-400 transition-colors">Nossos Serviços</a>
+                <a href="#servicos" className="hover:text-blue-400 transition-colors">Nossos Serviços</a>
               </li>
               <li>
-                <a href="#como-funciona" className="hover:text-red-400 transition-colors">Como Funciona</a>
+                <a href="#como-funciona" className="hover:text-blue-400 transition-colors">Como Funciona</a>
               </li>
               <li>
-                <a href="#calculadora" className="hover:text-red-400 transition-colors">Simulador de Chamada</a>
+                <a href="#calculadora" className="hover:text-blue-400 transition-colors">Simulador de Chamada</a>
               </li>
               <li>
-                <a href="#cobertura" className="hover:text-red-400 transition-colors">Localização & Moema</a>
+                <a href="#cobertura" className="hover:text-blue-400 transition-colors">Localização & Moema</a>
               </li>
               <li>
-                <a href="#faq" className="hover:text-red-400 transition-colors">Perguntas Frequentes</a>
+                <a href="#faq" className="hover:text-blue-400 transition-colors">Perguntas Frequentes</a>
               </li>
               <li>
-                <a href="#contato" className="hover:text-red-400 transition-colors">Fale Conosco</a>
+                <a href="#contato" className="hover:text-blue-400 transition-colors">Fale Conosco</a>
               </li>
             </ul>
           </div>
@@ -62,15 +71,15 @@ export const Footer: React.FC = () => {
             </h4>
             <ul className="space-y-2.5 text-xs sm:text-sm">
               <li className="flex items-start gap-2.5">
-                <MapPin className="w-4 h-4 text-red-500 shrink-0 mt-0.5" />
+                <MapPin className="w-4 h-4 text-blue-500 shrink-0 mt-0.5" />
                 <span>{companyData.address.full}</span>
               </li>
               <li className="flex items-center gap-2.5">
-                <Phone className="w-4 h-4 text-red-500 shrink-0" />
+                <Phone className="w-4 h-4 text-blue-500 shrink-0" />
                 <span>{companyData.phonePrimary} / {companyData.phoneSecondary}</span>
               </li>
               <li className="flex items-center gap-2.5">
-                <Mail className="w-4 h-4 text-red-500 shrink-0" />
+                <Mail className="w-4 h-4 text-blue-500 shrink-0" />
                 <span>{companyData.emailContact}</span>
               </li>
             </ul>
@@ -80,7 +89,7 @@ export const Footer: React.FC = () => {
                 href={`https://wa.me/${companyData.whatsappRaw}?text=${encodeURIComponent(companyData.whatsappMessage)}`}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center gap-2 px-4 py-2 rounded-lg bg-red-600/20 text-red-400 hover:bg-red-600 hover:text-white border border-red-600/30 text-xs font-bold transition-all"
+                className="inline-flex items-center gap-2 px-4 py-2.5 rounded-xl bg-emerald-600 hover:bg-emerald-500 text-white font-bold text-xs shadow-md shadow-emerald-950/30 transition-all border border-emerald-400/30"
               >
                 Chamar Motoboy no WhatsApp 24h
               </a>

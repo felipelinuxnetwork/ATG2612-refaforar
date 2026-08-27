@@ -8,18 +8,15 @@ interface LogoProps {
 export const Logo: React.FC<LogoProps> = ({ className = '', size = 'md' }) => {
   const sizeClasses = {
     sm: {
-      badge: 'w-8 h-8 rounded-lg text-xs',
-      title: 'text-base',
+      img: 'h-8 sm:h-9',
       sub: 'text-[9px]',
     },
     md: {
-      badge: 'w-10 h-10 md:w-11 md:h-11 rounded-xl text-xs md:text-sm',
-      title: 'text-lg md:text-xl',
+      img: 'h-10 sm:h-11 md:h-12',
       sub: 'text-[10px]',
     },
     lg: {
-      badge: 'w-14 h-14 rounded-2xl text-base md:text-lg',
-      title: 'text-2xl md:text-3xl',
+      img: 'h-14 sm:h-16',
       sub: 'text-xs',
     },
   };
@@ -27,25 +24,20 @@ export const Logo: React.FC<LogoProps> = ({ className = '', size = 'md' }) => {
   const currentSize = sizeClasses[size];
 
   return (
-    <div className={`flex items-center gap-3 font-bold tracking-tight select-none ${className}`}>
-      {/* Brand Icon Oval based on the authentic Coopstar Express Red Badge */}
-      <div className="relative flex items-center justify-center">
-        <div className={`${currentSize.badge} bg-gradient-to-br from-red-600 via-red-700 to-red-900 flex items-center justify-center shadow-lg shadow-red-700/30 border border-red-500/30 transform transition-transform hover:scale-105`}>
-          <span className="text-white font-black tracking-wider">C★E</span>
-        </div>
-        <div className="absolute -top-1 -right-1 w-3 h-3 bg-emerald-500 rounded-full border-2 border-slate-950 animate-pulse" title="Online 24h" />
+    <div className={`flex items-center gap-3 select-none ${className}`}>
+      <div className="relative flex items-center">
+        <img
+          src="/images/logo.png"
+          alt="Coopstar Express Logo Oficial"
+          className={`${currentSize.img} w-auto object-contain filter drop-shadow-md hover:scale-105 transition-transform duration-200`}
+        />
+        <div className="absolute -top-0.5 -right-1 w-3 h-3 bg-emerald-500 rounded-full border-2 border-slate-950 animate-pulse" title="Online 24h" />
       </div>
-
-      <div className="flex flex-col">
-        <div className="flex items-center gap-1.5 leading-none">
-          <span className={`text-white font-black uppercase tracking-tight ${currentSize.title}`}>
-            COOPSTAR
-          </span>
-          <span className={`text-red-500 font-extrabold uppercase ${currentSize.title}`}>
-            EXPRESS
-          </span>
-        </div>
-        <span className={`${currentSize.sub} uppercase font-semibold tracking-wider text-slate-400 mt-0.5`}>
+      <div className="hidden sm:flex flex-col">
+        <span className="text-xs font-bold text-white tracking-wide uppercase">
+          Coopstar Express
+        </span>
+        <span className={`${currentSize.sub} font-semibold uppercase tracking-wider text-slate-400`}>
           Moto Frete & Logística 24h
         </span>
       </div>

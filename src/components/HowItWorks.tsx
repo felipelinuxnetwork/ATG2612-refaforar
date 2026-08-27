@@ -31,17 +31,27 @@ export const HowItWorks: React.FC = () => {
   ];
 
   return (
-    <section id="como-funciona" className="py-24 bg-slate-900/50 border-t border-slate-800/80 relative">
+    <section id="como-funciona" className="py-24 bg-white text-slate-900 border-y border-slate-200 relative overflow-hidden">
+      {/* Background Image Layer with Blur & Contrast */}
+      <div className="absolute inset-0 -z-20 overflow-hidden pointer-events-none opacity-20">
+        <img
+          src="/images/service-delivery.jpg"
+          alt="Processo de entrega expressa"
+          className="w-full h-full object-cover scale-110 filter blur-xl saturate-200 contrast-125"
+        />
+        <div className="absolute inset-0 bg-white/80" />
+      </div>
+
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
         <div className="text-center max-w-3xl mx-auto mb-16 space-y-4">
-          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-red-950/50 border border-red-800/40 text-red-400 text-xs font-bold uppercase tracking-wider">
+          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-red-100 border border-red-200 text-red-700 text-xs font-bold uppercase tracking-wider">
             Processo Simples e Ágil
           </div>
-          <h2 className="text-3xl sm:text-4xl font-black text-white tracking-tight">
+          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-black text-slate-900 tracking-tight">
             Como Funciona a Coopstar Express
           </h2>
-          <p className="text-slate-400 text-base sm:text-lg">
+          <p className="text-slate-600 text-base sm:text-lg">
             Sem burocracia, sem filas e com a agilidade que a sua rotina e a sua empresa exigem.
           </p>
         </div>
@@ -57,29 +67,29 @@ export const HowItWorks: React.FC = () => {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.5, delay: idx * 0.1 }}
-                className="relative bg-slate-950/80 border border-slate-800/90 rounded-2xl p-6 hover:border-red-600/40 transition-all group flex flex-col justify-between"
+                className="relative bg-slate-50 border border-slate-200/90 rounded-2xl p-6 hover:border-red-500 hover:bg-white hover:shadow-xl transition-all duration-300 group flex flex-col justify-between"
               >
                 {/* Step Number Background */}
-                <div className="text-4xl font-black text-slate-800/80 group-hover:text-red-950/80 transition-colors absolute top-4 right-5 select-none">
+                <div className="text-4xl font-black text-slate-200 group-hover:text-red-100 transition-colors absolute top-4 right-5 select-none">
                   {step.number}
                 </div>
 
                 <div>
-                  <div className="w-12 h-12 rounded-xl bg-red-600/10 border border-red-500/20 text-red-500 flex items-center justify-center mb-6 group-hover:bg-red-600 group-hover:text-white transition-all">
+                  <div className="w-12 h-12 rounded-xl bg-red-600/10 border border-red-500/20 text-red-600 flex items-center justify-center mb-6 group-hover:bg-red-600 group-hover:text-white transition-all shadow-sm">
                     <Icon className="w-6 h-6" />
                   </div>
 
-                  <h3 className="text-lg font-bold text-white mb-2">
+                  <h3 className="text-lg font-bold text-slate-900 mb-2">
                     {step.title}
                   </h3>
 
-                  <p className="text-slate-400 text-sm leading-relaxed">
+                  <p className="text-slate-600 text-sm leading-relaxed">
                     {step.description}
                   </p>
                 </div>
 
-                <div className="mt-6 pt-4 border-t border-slate-800/60 flex items-center text-xs font-semibold text-red-400">
-                  <span>Passo {idx + 1} de 4</span>
+                <div className="mt-6 pt-4 border-t border-slate-200/80 flex items-center text-xs font-bold text-red-600">
+                  <span>Etapa {idx + 1} de 4</span>
                 </div>
               </motion.div>
             );

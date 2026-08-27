@@ -5,19 +5,20 @@ import { companyData } from '../data/companyInfo';
 
 export const Hero: React.FC = () => {
   return (
-    <section id="inicio" className="relative min-h-[90vh] pt-32 pb-20 md:pt-40 md:pb-28 overflow-hidden flex items-center">
+    <section id="inicio" className="relative min-h-[90vh] pt-32 pb-20 md:pt-40 md:pb-28 overflow-hidden flex items-center bg-gradient-to-b from-slate-950 via-slate-900 to-zinc-950">
       {/* Background Motorcycle Delivery Image with Dark Ambient Overlays */}
-      <div className="absolute inset-0 -z-20 overflow-hidden">
+      <div className="absolute inset-0 -z-20 overflow-hidden pointer-events-none">
         <img
           src="/hero-bg.jpg"
           alt="Motoboy realizando entrega rápida em São Paulo - Coopstar Express"
-          className="w-full h-full object-cover object-[center_35%] scale-105 filter brightness-[0.65] contrast-110 saturate-110"
+          className="w-full h-full object-cover object-[center_35%] scale-110 filter blur-sm md:blur-md brightness-[0.55] contrast-[1.3] saturate-[1.4]"
         />
       </div>
 
       {/* Background Gradients & Ambient Glows */}
       <div className="absolute inset-0 bg-gradient-to-r from-slate-950/95 via-slate-950/75 to-slate-950/40 -z-10" />
       <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-transparent to-slate-950/60 -z-10" />
+      <div className="absolute inset-0 bg-[radial-gradient(ellipse_80%_80%_at_50%_-20%,rgba(220,38,38,0.25),transparent)] -z-10" />
       <div className="absolute top-1/4 left-1/4 w-[500px] h-[500px] bg-red-600/15 rounded-full blur-3xl pointer-events-none -z-10" />
       
       {/* Subtle grid pattern */}
@@ -56,7 +57,7 @@ export const Hero: React.FC = () => {
                 href={`https://wa.me/${companyData.whatsappRaw}?text=${encodeURIComponent(companyData.whatsappMessage)}`}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="w-full sm:w-auto px-8 py-4 rounded-xl text-base font-bold text-white bg-gradient-to-r from-red-600 via-red-600 to-red-700 hover:from-red-500 hover:to-red-600 shadow-xl shadow-red-700/25 border border-red-500/40 flex items-center justify-center gap-3 transition-all transform hover:-translate-y-1 hover:shadow-red-600/40"
+                className="w-full sm:w-auto px-8 py-4 rounded-xl text-base font-bold text-white bg-gradient-to-r from-blue-600 via-blue-600 to-blue-700 hover:from-blue-500 hover:to-blue-600 shadow-xl shadow-blue-700/25 border border-blue-500/40 flex items-center justify-center gap-3 transition-all transform hover:-translate-y-1 hover:shadow-blue-600/40"
               >
                 <MessageSquare className="w-5 h-5 text-white" />
                 <span>Pedir Moto Frete Agora</span>
@@ -67,7 +68,7 @@ export const Hero: React.FC = () => {
                 href="#calculadora"
                 className="w-full sm:w-auto px-6 py-4 rounded-xl text-base font-semibold text-slate-200 bg-slate-900/90 hover:bg-slate-800 border border-slate-700/80 hover:border-slate-600 flex items-center justify-center gap-2 transition-all shadow-md"
               >
-                <Calculator className="w-5 h-5 text-red-400" />
+                <Calculator className="w-5 h-5 text-blue-400" />
                 <span>Simular Orçamento</span>
               </a>
             </div>
@@ -75,15 +76,15 @@ export const Hero: React.FC = () => {
             {/* Trust Highlights under CTA */}
             <div className="pt-4 grid grid-cols-2 sm:grid-cols-3 gap-3 border-t border-slate-800/80 text-left">
               <div className="flex items-center gap-2">
-                <CheckCircle className="w-4 h-4 text-red-400 shrink-0" />
+                <CheckCircle className="w-4 h-4 text-blue-400 shrink-0" />
                 <span className="text-xs text-slate-300 font-medium">Saída Imediata</span>
               </div>
               <div className="flex items-center gap-2">
-                <ShieldCheck className="w-4 h-4 text-red-400 shrink-0" />
+                <ShieldCheck className="w-4 h-4 text-blue-400 shrink-0" />
                 <span className="text-xs text-slate-300 font-medium">Protocolo Digital</span>
               </div>
               <div className="flex items-center gap-2 col-span-2 sm:col-span-1">
-                <Clock className="w-4 h-4 text-red-400 shrink-0" />
+                <Clock className="w-4 h-4 text-blue-400 shrink-0" />
                 <span className="text-xs text-slate-300 font-medium">24h / 7 dias por semana</span>
               </div>
             </div>
@@ -97,14 +98,14 @@ export const Hero: React.FC = () => {
             transition={{ duration: 0.7, delay: 0.2, ease: 'easeOut' }}
           >
             {/* Ambient Background Box Glow */}
-            <div className="absolute -inset-1 bg-gradient-to-r from-red-600/30 to-amber-600/20 rounded-3xl blur-xl opacity-60" />
+            <div className="absolute -inset-1 bg-gradient-to-r from-blue-600/30 to-indigo-600/20 rounded-3xl blur-xl opacity-60" />
             
             <div className="relative glass-panel rounded-2xl p-6 sm:p-8 space-y-6 border border-slate-700/60 shadow-2xl">
               
               {/* Header of the card */}
               <div className="flex items-center justify-between border-b border-slate-800 pb-4">
                 <div className="flex items-center gap-3">
-                  <div className="w-10 h-10 rounded-xl bg-red-600/20 border border-red-500/30 flex items-center justify-center text-red-400">
+                  <div className="w-10 h-10 rounded-xl bg-blue-600/20 border border-blue-500/30 flex items-center justify-center text-blue-400">
                     <Zap className="w-5 h-5" />
                   </div>
                   <div>
@@ -120,9 +121,9 @@ export const Hero: React.FC = () => {
 
               {/* Quick Services Snapshot */}
               <div className="space-y-3">
-                <div className="bg-slate-900/90 rounded-xl p-3.5 border border-slate-800/80 flex items-center justify-between hover:border-red-900/50 transition-colors">
+                <div className="bg-slate-900/90 rounded-xl p-3.5 border border-slate-800/80 flex items-center justify-between hover:border-blue-900/50 transition-colors">
                   <div className="flex items-center gap-3">
-                    <div className="w-8 h-8 rounded-lg bg-red-600/10 text-red-400 flex items-center justify-center font-bold text-xs">
+                    <div className="w-8 h-8 rounded-lg bg-blue-600/10 text-blue-400 flex items-center justify-center font-bold text-xs">
                       01
                     </div>
                     <div>
@@ -130,12 +131,12 @@ export const Hero: React.FC = () => {
                       <div className="text-xs text-slate-400">Ponto a ponto, cartórios e bancos</div>
                     </div>
                   </div>
-                  <span className="text-xs font-semibold text-red-400">Express</span>
+                  <span className="text-xs font-semibold text-blue-400">Express</span>
                 </div>
 
-                <div className="bg-slate-900/90 rounded-xl p-3.5 border border-slate-800/80 flex items-center justify-between hover:border-red-900/50 transition-colors">
+                <div className="bg-slate-900/90 rounded-xl p-3.5 border border-slate-800/80 flex items-center justify-between hover:border-blue-900/50 transition-colors">
                   <div className="flex items-center gap-3">
-                    <div className="w-8 h-8 rounded-lg bg-red-600/10 text-red-400 flex items-center justify-center font-bold text-xs">
+                    <div className="w-8 h-8 rounded-lg bg-blue-600/10 text-blue-400 flex items-center justify-center font-bold text-xs">
                       02
                     </div>
                     <div>
@@ -146,9 +147,9 @@ export const Hero: React.FC = () => {
                   <span className="text-xs font-semibold text-emerald-400">Faturado</span>
                 </div>
 
-                <div className="bg-slate-900/90 rounded-xl p-3.5 border border-slate-800/80 flex items-center justify-between hover:border-red-900/50 transition-colors">
+                <div className="bg-slate-900/90 rounded-xl p-3.5 border border-slate-800/80 flex items-center justify-between hover:border-blue-900/50 transition-colors">
                   <div className="flex items-center gap-3">
-                    <div className="w-8 h-8 rounded-lg bg-red-600/10 text-red-400 flex items-center justify-center font-bold text-xs">
+                    <div className="w-8 h-8 rounded-lg bg-blue-600/10 text-blue-400 flex items-center justify-center font-bold text-xs">
                       03
                     </div>
                     <div>
@@ -161,7 +162,7 @@ export const Hero: React.FC = () => {
               </div>
 
               {/* Direct Call Box */}
-              <div className="bg-gradient-to-br from-red-950/40 via-slate-900 to-slate-900 rounded-xl p-4 border border-red-900/40">
+              <div className="bg-gradient-to-br from-blue-950/40 via-slate-900 to-slate-900 rounded-xl p-4 border border-blue-900/40">
                 <div className="flex items-center justify-between">
                   <div>
                     <span className="text-xs text-slate-400 font-medium block">Atendimento Imediato:</span>
@@ -169,13 +170,13 @@ export const Hero: React.FC = () => {
                   </div>
                   <a
                     href={`tel:${companyData.phonePrimaryRaw}`}
-                    className="px-3 py-1.5 rounded-lg bg-red-600 hover:bg-red-500 text-white text-xs font-bold transition-colors"
+                    className="px-3 py-1.5 rounded-lg bg-blue-600 hover:bg-blue-500 text-white text-xs font-bold transition-colors"
                   >
                     Ligar Agora
                   </a>
                 </div>
                 <div className="mt-2 text-[11px] text-slate-400 flex items-center gap-1">
-                  <MapPin className="w-3 h-3 text-red-400" />
+                  <MapPin className="w-3 h-3 text-blue-400" />
                   <span>Av. Jurucê, 898 - Moema - São Paulo</span>
                 </div>
               </div>

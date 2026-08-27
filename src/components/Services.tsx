@@ -16,16 +16,26 @@ export const Services: React.FC = () => {
   const [selectedService, setSelectedService] = useState<ServiceItem | null>(null);
 
   return (
-    <section id="servicos" className="py-24 bg-slate-950 relative overflow-hidden">
+    <section id="servicos" className="py-24 bg-gradient-to-b from-slate-950 via-red-950/30 to-slate-950 border-t border-red-900/20 relative overflow-hidden">
+      {/* Background Image Layer with Blur & Vibrant Contrast */}
+      <div className="absolute inset-0 -z-20 overflow-hidden pointer-events-none">
+        <img
+          src="/images/service-motofrete.jpg"
+          alt="Serviços de Moto Frete e Entregas Rápidas"
+          className="w-full h-full object-cover scale-110 filter blur-md sm:blur-lg opacity-30 brightness-[0.5] contrast-[1.35] saturate-[1.6]"
+        />
+        <div className="absolute inset-0 bg-gradient-to-b from-slate-950/70 via-transparent to-slate-950/80" />
+      </div>
       {/* Background Glows */}
-      <div className="absolute top-1/2 left-0 w-96 h-96 bg-red-950/20 rounded-full blur-3xl -z-10 pointer-events-none" />
-      <div className="absolute bottom-0 right-0 w-96 h-96 bg-slate-900/40 rounded-full blur-3xl -z-10 pointer-events-none" />
+      <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,rgba(153,27,27,0.18),transparent_75%)] pointer-events-none -z-10" />
+      <div className="absolute top-1/2 left-0 w-96 h-96 bg-red-950/30 rounded-full blur-3xl -z-10 pointer-events-none" />
+      <div className="absolute bottom-0 right-0 w-96 h-96 bg-slate-900/60 rounded-full blur-3xl -z-10 pointer-events-none" />
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
         {/* Section Header */}
         <div className="text-center max-w-3xl mx-auto mb-16 space-y-4">
-          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-red-950/50 border border-red-800/40 text-red-400 text-xs font-bold uppercase tracking-wider">
+          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-blue-950/50 border border-blue-800/40 text-blue-400 text-xs font-bold uppercase tracking-wider">
             Nossos Serviços
           </div>
           <h2 className="text-3xl sm:text-4xl font-black text-white tracking-tight">
@@ -48,7 +58,7 @@ export const Services: React.FC = () => {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.5, delay: index * 0.1 }}
-                className="group relative glass-panel rounded-2xl p-8 border border-slate-800 hover:border-red-600/50 transition-all duration-300 flex flex-col justify-between hover:shadow-xl hover:shadow-red-950/30"
+                className="group relative glass-panel rounded-2xl p-8 border border-slate-800 hover:border-blue-600/50 transition-all duration-300 flex flex-col justify-between hover:shadow-xl hover:shadow-blue-950/30"
               >
                 <div className="overflow-hidden rounded-2xl">
                   {/* Service Photo with Badge */}
@@ -64,14 +74,14 @@ export const Services: React.FC = () => {
                       <span className="absolute top-3 right-3 px-3 py-1 rounded-full text-xs font-bold bg-slate-950/80 backdrop-blur-md text-slate-200 border border-slate-700/60 shadow-lg">
                         {service.tag}
                       </span>
-                      <div className="absolute bottom-3 left-3 w-11 h-11 rounded-xl bg-red-600/90 backdrop-blur-md text-white flex items-center justify-center shadow-lg border border-red-400/30">
+                      <div className="absolute bottom-3 left-3 w-11 h-11 rounded-xl bg-blue-600/90 backdrop-blur-md text-white flex items-center justify-center shadow-lg border border-blue-400/30">
                         <Icon className="w-5 h-5" />
                       </div>
                     </div>
                   )}
 
                   {/* Title & Short Description */}
-                  <h3 className="text-xl font-bold text-white mb-2 group-hover:text-red-400 transition-colors">
+                  <h3 className="text-xl font-bold text-white mb-2 group-hover:text-blue-400 transition-colors">
                     {service.title}
                   </h3>
                   <p className="text-slate-300 text-sm leading-relaxed mb-5">
@@ -82,7 +92,7 @@ export const Services: React.FC = () => {
                   <ul className="space-y-2 mb-6">
                     {service.features.slice(0, 3).map((feat, fIdx) => (
                       <li key={fIdx} className="flex items-start gap-2.5 text-xs sm:text-sm text-slate-300">
-                        <CheckCircle2 className="w-4 h-4 text-red-500 shrink-0 mt-0.5" />
+                        <CheckCircle2 className="w-4 h-4 text-blue-500 shrink-0 mt-0.5" />
                         <span>{feat}</span>
                       </li>
                     ))}
@@ -112,7 +122,7 @@ export const Services: React.FC = () => {
                     href={`https://wa.me/${companyData.whatsappRaw}?text=${encodeURIComponent(`Olá! Gostaria de saber mais e solicitar o serviço de: ${service.title}`)}`}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="flex-1 py-3 px-4 rounded-xl text-xs sm:text-sm font-bold text-white bg-red-600 hover:bg-red-500 flex items-center justify-center gap-2 shadow-md shadow-red-900/30 transition-all"
+                    className="flex-1 py-3 px-4 rounded-xl text-xs sm:text-sm font-bold text-white bg-emerald-600 hover:bg-emerald-500 flex items-center justify-center gap-2 shadow-md shadow-emerald-900/30 transition-all"
                   >
                     <MessageSquare className="w-4 h-4" />
                     <span>Solicitar via WhatsApp</span>
@@ -146,7 +156,7 @@ export const Services: React.FC = () => {
             >
               <div className="flex items-center justify-between border-b border-slate-800 pb-4">
                 <div className="flex items-center gap-3">
-                  <span className="px-3 py-1 rounded-full text-xs font-bold bg-red-950 text-red-300 border border-red-800">
+                  <span className="px-3 py-1 rounded-full text-xs font-bold bg-blue-950 text-blue-300 border border-blue-800">
                     {selectedService.tag}
                   </span>
                   <h3 className="text-xl font-bold text-white">{selectedService.title}</h3>
@@ -178,7 +188,7 @@ export const Services: React.FC = () => {
                   <ul className="space-y-2">
                     {selectedService.features.map((feat, idx) => (
                       <li key={idx} className="flex items-start gap-2 text-slate-200">
-                        <CheckCircle2 className="w-4 h-4 text-red-500 shrink-0 mt-0.5" />
+                        <CheckCircle2 className="w-4 h-4 text-blue-500 shrink-0 mt-0.5" />
                         <span>{feat}</span>
                       </li>
                     ))}
@@ -202,7 +212,7 @@ export const Services: React.FC = () => {
                   href={`https://wa.me/${companyData.whatsappRaw}?text=${encodeURIComponent(`Olá! Gostaria de contratar/solicitar informações sobre ${selectedService.title}`)}`}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="flex-1 py-3 px-4 rounded-xl text-sm font-bold text-white bg-red-600 hover:bg-red-500 flex items-center justify-center gap-2"
+                  className="flex-1 py-3 px-4 rounded-xl text-sm font-bold text-white bg-emerald-600 hover:bg-emerald-500 flex items-center justify-center gap-2 shadow-lg shadow-emerald-900/30"
                 >
                   <MessageSquare className="w-4 h-4" />
                   Pedir no WhatsApp

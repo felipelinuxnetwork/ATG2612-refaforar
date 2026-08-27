@@ -56,15 +56,25 @@ export const ContactSection: React.FC = () => {
   };
 
   return (
-    <section id="contato" className="py-24 bg-slate-900/60 border-t border-slate-800 relative">
+    <section id="contato" className="py-24 bg-gradient-to-tr from-slate-950 via-red-950/35 to-slate-950 border-t border-red-900/30 relative overflow-hidden">
+      {/* Background Image Layer with Blur & Contrast */}
+      <div className="absolute inset-0 -z-20 overflow-hidden pointer-events-none">
+        <img
+          src="/images/bg-faq-contact.jpg"
+          alt="Central de atendimento e contato Coopstar Express"
+          className="w-full h-full object-cover scale-110 filter blur-md sm:blur-lg opacity-35 brightness-[0.5] contrast-[1.4] saturate-[1.6]"
+        />
+        <div className="absolute inset-0 bg-gradient-to-b from-slate-950/75 via-transparent to-slate-950/85" />
+      </div>
       {/* Glow Effects */}
-      <div className="absolute top-1/3 left-1/4 w-96 h-96 bg-red-900/10 rounded-full blur-3xl pointer-events-none -z-10" />
+      <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(220,38,38,0.18),transparent_70%)] pointer-events-none -z-10" />
+      <div className="absolute top-1/3 left-1/4 w-96 h-96 bg-red-900/20 rounded-full blur-3xl pointer-events-none -z-10" />
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
         {/* Section Header */}
         <div className="text-center max-w-3xl mx-auto mb-16 space-y-4">
-          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-red-950/50 border border-red-800/40 text-red-400 text-xs font-bold uppercase tracking-wider">
+          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-blue-950/50 border border-blue-800/40 text-blue-400 text-xs font-bold uppercase tracking-wider">
             Fale Conosco
           </div>
           <h2 className="text-3xl sm:text-4xl font-black text-white tracking-tight">
@@ -89,7 +99,7 @@ export const ContactSection: React.FC = () => {
                 
                 {/* Phone */}
                 <div className="flex items-start gap-4">
-                  <div className="w-12 h-12 rounded-xl bg-red-600/10 border border-red-500/20 text-red-500 flex items-center justify-center shrink-0">
+                  <div className="w-12 h-12 rounded-xl bg-blue-600/10 border border-blue-500/20 text-blue-500 flex items-center justify-center shrink-0">
                     <Phone className="w-5 h-5" />
                   </div>
                   <div>
@@ -97,10 +107,10 @@ export const ContactSection: React.FC = () => {
                       Telefones da Central (24h)
                     </span>
                     <div className="flex flex-col gap-1 mt-1">
-                      <a href={`tel:${companyData.phonePrimaryRaw}`} className="text-base font-bold text-white hover:text-red-400 transition-colors">
+                      <a href={`tel:${companyData.phonePrimaryRaw}`} className="text-base font-bold text-white hover:text-blue-400 transition-colors">
                         {companyData.phonePrimary}
                       </a>
-                      <a href={`tel:${companyData.phoneSecondaryRaw}`} className="text-base font-bold text-white hover:text-red-400 transition-colors">
+                      <a href={`tel:${companyData.phoneSecondaryRaw}`} className="text-base font-bold text-white hover:text-blue-400 transition-colors">
                         {companyData.phoneSecondary}
                       </a>
                     </div>
@@ -165,7 +175,7 @@ export const ContactSection: React.FC = () => {
               </div>
 
               <div className="p-4 rounded-xl bg-slate-900 border border-slate-800 text-xs text-slate-400 flex items-center gap-2">
-                <Clock className="w-4 h-4 text-red-400 shrink-0" />
+                <Clock className="w-4 h-4 text-blue-400 shrink-0" />
                 <span>Atendimento de plantão 24h para emergências e agendamentos.</span>
               </div>
 
@@ -195,7 +205,7 @@ export const ContactSection: React.FC = () => {
                     </button>
                     <button
                       onClick={handleWhatsAppDirect}
-                      className="px-6 py-2.5 rounded-xl bg-red-600 hover:bg-red-500 text-sm font-bold text-white transition-colors flex items-center gap-2"
+                      className="px-6 py-2.5 rounded-xl bg-blue-600 hover:bg-blue-500 text-sm font-bold text-white transition-colors flex items-center gap-2"
                     >
                       <MessageSquare className="w-4 h-4" />
                       Falar Agora no WhatsApp
@@ -227,7 +237,7 @@ export const ContactSection: React.FC = () => {
                         value={formData.nome}
                         onChange={handleChange}
                         placeholder="Ex: João da Silva / Empresa LTDA"
-                        className="w-full px-4 py-3 bg-slate-900 text-white placeholder-slate-500 rounded-xl border border-slate-800 focus:outline-none focus:border-red-500 focus:ring-1 focus:ring-red-500 text-sm"
+                        className="w-full px-4 py-3 bg-slate-900 text-white placeholder-slate-500 rounded-xl border border-slate-800 focus:outline-none focus:border-blue-500 focus:ring-1 focus:ring-blue-500 text-sm"
                       />
                     </div>
 
@@ -243,7 +253,7 @@ export const ContactSection: React.FC = () => {
                         value={formData.email}
                         onChange={handleChange}
                         placeholder="seuemail@empresa.com.br"
-                        className="w-full px-4 py-3 bg-slate-900 text-white placeholder-slate-500 rounded-xl border border-slate-800 focus:outline-none focus:border-red-500 focus:ring-1 focus:ring-red-500 text-sm"
+                        className="w-full px-4 py-3 bg-slate-900 text-white placeholder-slate-500 rounded-xl border border-slate-800 focus:outline-none focus:border-blue-500 focus:ring-1 focus:ring-blue-500 text-sm"
                       />
                     </div>
                   </div>
@@ -260,7 +270,7 @@ export const ContactSection: React.FC = () => {
                         value={formData.telefone}
                         onChange={handleChange}
                         placeholder="(11) 99999-9999"
-                        className="w-full px-4 py-3 bg-slate-900 text-white placeholder-slate-500 rounded-xl border border-slate-800 focus:outline-none focus:border-red-500 focus:ring-1 focus:ring-red-500 text-sm"
+                        className="w-full px-4 py-3 bg-slate-900 text-white placeholder-slate-500 rounded-xl border border-slate-800 focus:outline-none focus:border-blue-500 focus:ring-1 focus:ring-blue-500 text-sm"
                       />
                     </div>
 
@@ -273,7 +283,7 @@ export const ContactSection: React.FC = () => {
                         name="servico"
                         value={formData.servico}
                         onChange={handleChange}
-                        className="w-full px-4 py-3 bg-slate-900 text-white rounded-xl border border-slate-800 focus:outline-none focus:border-red-500 focus:ring-1 focus:ring-red-500 text-sm"
+                        className="w-full px-4 py-3 bg-slate-900 text-white rounded-xl border border-slate-800 focus:outline-none focus:border-blue-500 focus:ring-1 focus:ring-blue-500 text-sm"
                       >
                         <option value="Moto Frete Express (Urbano)">Moto Frete Express (Urbano)</option>
                         <option value="Delivery Corporativo & E-commerce">Delivery Corporativo & E-commerce</option>
@@ -296,7 +306,7 @@ export const ContactSection: React.FC = () => {
                       value={formData.assunto}
                       onChange={handleChange}
                       placeholder="Ex: Cotação de entrega rápida para Moema / Pinheiros"
-                      className="w-full px-4 py-3 bg-slate-900 text-white placeholder-slate-500 rounded-xl border border-slate-800 focus:outline-none focus:border-red-500 focus:ring-1 focus:ring-red-500 text-sm"
+                      className="w-full px-4 py-3 bg-slate-900 text-white placeholder-slate-500 rounded-xl border border-slate-800 focus:outline-none focus:border-blue-500 focus:ring-1 focus:ring-blue-500 text-sm"
                     />
                   </div>
 
@@ -312,7 +322,7 @@ export const ContactSection: React.FC = () => {
                       value={formData.mensagem}
                       onChange={handleChange}
                       placeholder="Descreva aqui o serviço desejado, endereços de coleta e entrega, horários ou dúvidas..."
-                      className="w-full px-4 py-3 bg-slate-900 text-white placeholder-slate-500 rounded-xl border border-slate-800 focus:outline-none focus:border-red-500 focus:ring-1 focus:ring-red-500 text-sm resize-none"
+                      className="w-full px-4 py-3 bg-slate-900 text-white placeholder-slate-500 rounded-xl border border-slate-800 focus:outline-none focus:border-blue-500 focus:ring-1 focus:ring-blue-500 text-sm resize-none"
                     />
                   </div>
 
@@ -320,7 +330,7 @@ export const ContactSection: React.FC = () => {
                     <button
                       type="submit"
                       disabled={loading}
-                      className="flex-1 py-3.5 px-6 rounded-xl font-bold text-white bg-gradient-to-r from-red-600 to-red-700 hover:from-red-500 hover:to-red-600 shadow-lg shadow-red-950/40 flex items-center justify-center gap-2 text-sm transition-all cursor-pointer disabled:opacity-50"
+                      className="flex-1 py-3.5 px-6 rounded-xl font-bold text-white bg-gradient-to-r from-blue-600 to-blue-700 hover:from-blue-500 hover:to-blue-600 shadow-lg shadow-blue-950/40 flex items-center justify-center gap-2 text-sm transition-all cursor-pointer disabled:opacity-50"
                     >
                       <Send className="w-4 h-4" />
                       <span>{loading ? 'Enviando...' : 'Enviar Formulário'}</span>
