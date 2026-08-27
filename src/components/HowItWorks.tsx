@@ -31,27 +31,27 @@ export const HowItWorks: React.FC = () => {
   ];
 
   return (
-    <section id="como-funciona" className="py-24 bg-white text-slate-900 border-y border-slate-200 relative overflow-hidden">
+    <section id="como-funciona" className="py-24 bg-white dark:bg-slate-950 text-slate-900 dark:text-slate-100 border-y border-slate-200 dark:border-slate-800 relative overflow-hidden transition-colors duration-300">
       {/* Background Image Layer with Blur & Contrast */}
-      <div className="absolute inset-0 -z-20 overflow-hidden pointer-events-none opacity-20">
+      <div className="absolute inset-0 -z-20 overflow-hidden pointer-events-none opacity-20 dark:opacity-30">
         <img
           src="/images/service-delivery.jpg"
           alt="Processo de entrega expressa"
           className="w-full h-full object-cover scale-110 filter blur-xl saturate-200 contrast-125"
         />
-        <div className="absolute inset-0 bg-white/80" />
+        <div className="absolute inset-0 bg-white/80 dark:bg-slate-950/80" />
       </div>
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
         <div className="text-center max-w-3xl mx-auto mb-16 space-y-4">
-          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-red-100 border border-red-200 text-red-700 text-xs font-bold uppercase tracking-wider">
+          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-blue-100 dark:bg-blue-950/60 border border-blue-200 dark:border-blue-800/40 text-blue-700 dark:text-blue-300 text-xs font-bold uppercase tracking-wider">
             Processo Simples e Ágil
           </div>
-          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-black text-slate-900 tracking-tight">
+          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-black text-slate-900 dark:text-white tracking-tight">
             Como Funciona a Coopstar Express
           </h2>
-          <p className="text-slate-600 text-base sm:text-lg">
+          <p className="text-slate-600 dark:text-slate-400 text-base sm:text-lg">
             Sem burocracia, sem filas e com a agilidade que a sua rotina e a sua empresa exigem.
           </p>
         </div>
@@ -67,28 +67,28 @@ export const HowItWorks: React.FC = () => {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.5, delay: idx * 0.1 }}
-                className="relative bg-slate-50 border border-slate-200/90 rounded-2xl p-6 hover:border-red-500 hover:bg-white hover:shadow-xl transition-all duration-300 group flex flex-col justify-between"
+                className="relative bg-slate-50 dark:bg-slate-900/80 border border-slate-200/90 dark:border-slate-800 rounded-2xl p-6 hover:border-blue-500 hover:bg-white dark:hover:bg-slate-800/90 hover:shadow-xl transition-all duration-300 group flex flex-col justify-between"
               >
                 {/* Step Number Background */}
-                <div className="text-4xl font-black text-slate-200 group-hover:text-red-100 transition-colors absolute top-4 right-5 select-none">
+                <div className="text-4xl font-black text-slate-200 dark:text-slate-800 group-hover:text-blue-200 dark:group-hover:text-blue-950 transition-colors absolute top-4 right-5 select-none">
                   {step.number}
                 </div>
 
                 <div>
-                  <div className="w-12 h-12 rounded-xl bg-red-600/10 border border-red-500/20 text-red-600 flex items-center justify-center mb-6 group-hover:bg-red-600 group-hover:text-white transition-all shadow-sm">
+                  <div className="w-12 h-12 rounded-xl bg-blue-600/10 dark:bg-blue-500/20 border border-blue-500/20 text-blue-600 dark:text-blue-400 flex items-center justify-center mb-6 group-hover:bg-blue-600 group-hover:text-white transition-all shadow-sm">
                     <Icon className="w-6 h-6" />
                   </div>
 
-                  <h3 className="text-lg font-bold text-slate-900 mb-2">
+                  <h3 className="text-lg font-bold text-slate-900 dark:text-white mb-2">
                     {step.title}
                   </h3>
 
-                  <p className="text-slate-600 text-sm leading-relaxed">
+                  <p className="text-slate-600 dark:text-slate-400 text-sm leading-relaxed">
                     {step.description}
                   </p>
                 </div>
 
-                <div className="mt-6 pt-4 border-t border-slate-200/80 flex items-center text-xs font-bold text-red-600">
+                <div className="mt-6 pt-4 border-t border-slate-200/80 dark:border-slate-800 flex items-center text-xs font-bold text-blue-600 dark:text-blue-400">
                   <span>Etapa {idx + 1} de 4</span>
                 </div>
               </motion.div>

@@ -1,12 +1,15 @@
 import React, { useState, useEffect } from 'react';
-import { MessageSquare, Menu, X, Clock, MapPin, Zap } from 'lucide-react';
+import { MessageSquare, Menu, X, Clock, MapPin, Zap, Sun, Moon } from 'lucide-react';
 import { Logo } from './Logo';
 import { companyData } from '../data/companyInfo';
+import { useTheme } from '../context/ThemeContext';
 
 export const Navbar: React.FC = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [activeSection, setActiveSection] = useState<string>('inicio');
+
+  const { isDarkMode, toggleDarkMode } = useTheme();
 
   const navLinks = [
     { id: 'inicio', label: 'Início', href: '#inicio' },
@@ -45,7 +48,7 @@ export const Navbar: React.FC = () => {
 
   return (
     <header className="fixed top-0 left-0 right-0 z-50 transition-all duration-300">
-      {/* Top micro-bar with quick 24h status (no phone numbers) */}
+      {/* Top micro-bar with quick 24h status */}
       <div className="bg-slate-950/95 text-slate-300 text-xs py-1.5 px-4 border-b border-slate-800/80 hidden md:block">
         <div className="max-w-7xl mx-auto flex justify-between items-center">
           <div className="flex items-center gap-4">
@@ -54,13 +57,13 @@ export const Navbar: React.FC = () => {
             </span>
             <span className="text-slate-700">|</span>
             <span className="inline-flex items-center gap-1.5 text-slate-400">
-              <MapPin className="w-3.5 h-3.5 text-red-500" /> Moema, São Paulo - Toda SP e Região
+              <MapPin className="w-3.5 h-3.5 text-blue-500" /> Moema, São Paulo - Toda SP e Região
             </span>
           </div>
 
           <div className="flex items-center gap-3 text-slate-400 font-medium">
-            <span className="inline-flex items-center gap-1 text-red-400 text-xs font-semibold">
-              <Zap className="w-3 h-3 text-red-500 fill-current" /> Motoboy Imediato ou Programado
+            <span className="inline-flex items-center gap-1 text-blue-400 text-xs font-semibold">
+              <Zap className="w-3 h-3 text-blue-500 fill-current" /> Motoboy Imediato ou Programado
             </span>
           </div>
         </div>
@@ -99,8 +102,23 @@ export const Navbar: React.FC = () => {
             })}
           </div>
 
-          {/* Action CTA: WhatsApp 24h (Phone removed as requested) */}
+          {/* Action Area: Dark Mode Toggle & WhatsApp CTA */}
           <div className="hidden sm:flex items-center gap-3">
+            {/* Dark Mode Toggle Button (Icon Only) */}
+            <button
+              onClick={toggleDarkMode}
+              className="p-2.5 rounded-xl text-slate-300 hover:text-white bg-slate-900 hover:bg-slate-800 border border-slate-800 transition-all flex items-center justify-center focus:outline-none focus:ring-2 focus:ring-blue-500 shadow-sm cursor-pointer"
+              title={isDarkMode ? "Modo Escuro Ativo (Clique para alterar)" : "Ativar Modo Escuro"}
+              aria-label="Alternar modo escuro"
+            >
+              {isDarkMode ? (
+                <Sun className="w-5 h-5 text-amber-400 animate-pulse" />
+              ) : (
+                <Moon className="w-5 h-5 text-slate-300 hover:text-indigo-400 transition-colors" />
+              )}
+            </button>
+
+            {/* WhatsApp CTA */}
             <a
               href={`https://wa.me/${companyData.whatsappRaw}?text=${encodeURIComponent(companyData.whatsappMessage)}`}
               target="_blank"
@@ -112,19 +130,30 @@ export const Navbar: React.FC = () => {
             </a>
           </div>
 
-          {/* Mobile Menu Button */}
-          <button
-            onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-            className="lg:hidden p-2 rounded-xl text-slate-300 hover:text-white bg-slate-900 border border-slate-800 focus:outline-none focus:ring-2 focus:ring-blue-500"
-            aria-label="Abrir menu"
-          >
-            {mobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
-          </button>
+          {/* Mobile Actions (Dark Mode Toggle + Mobile Menu Button) */}
+          <div className="flex items-center gap-2 sm:hidden">
+            <button
+              onClick={toggleDarkMode}
+              className="p-2 rounded-xl text-slate-300 hover:text-white bg-slate-900 border border-slate-800 focus:outline-none focus:ring-2 focus:ring-blue-500 cursor-pointer"
+              title="Alternar Modo Escuro"
+              aria-label="Alternar modo escuro"
+            >
+              {isDarkMode ? <Sun className="w-5 h-5 text-amber-400" /> : <Moon className="w-5 h-5 text-slate-300" />}
+            </button>
+
+            <button
+              onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+              className="p-2 rounded-xl text-slate-300 hover:text-white bg-slate-900 border border-slate-800 focus:outline-none focus:ring-2 focus:ring-blue-500 cursor-pointer"
+              aria-label="Abrir menu"
+            >
+              {mobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
+            </button>
+          </div>
         </div>
 
-        {/* Mobile Dropdown Menu with Active Indicator */}
+        {/* Mobile Dropdown Menu with Active Indicator & Dark Mode Toggle */}
         {mobileMenuOpen && (
-          <div className="lg:hidden bg-slate-950/98 border-b border-slate-800 px-4 pt-3 pb-6 space-y-2 animate-in slide-in-from-top-2 duration-200">
+          <div className="lg:hidden bg-slate-950/98 border-b border-slate-800 px-4 pt-3 pb-6 space-y-3 animate-in slide-in-from-top-2 duration-200">
             <div className="flex flex-col space-y-1">
               {navLinks.map((link) => {
                 const isActive = activeSection === link.id;
@@ -146,7 +175,20 @@ export const Navbar: React.FC = () => {
               })}
             </div>
 
-            <div className="pt-4 border-t border-slate-800/80">
+            <div className="pt-3 border-t border-slate-800/80 space-y-2">
+              <button
+                onClick={toggleDarkMode}
+                className="w-full py-2.5 px-4 rounded-xl text-xs font-bold text-slate-200 bg-slate-900 border border-slate-800 flex items-center justify-between"
+              >
+                <div className="flex items-center gap-2">
+                  {isDarkMode ? <Sun className="w-4 h-4 text-amber-400" /> : <Moon className="w-4 h-4 text-indigo-400" />}
+                  <span>Modo Escuro para o Site Inteiro</span>
+                </div>
+                <span className={`px-2.5 py-0.5 rounded-full text-[11px] font-bold ${isDarkMode ? 'bg-amber-500/20 text-amber-300 border border-amber-500/40' : 'bg-slate-800 text-slate-400'}`}>
+                  {isDarkMode ? 'ATIVADO' : 'DESATIVADO'}
+                </span>
+              </button>
+
               <a
                 href={`https://wa.me/${companyData.whatsappRaw}?text=${encodeURIComponent(companyData.whatsappMessage)}`}
                 target="_blank"
